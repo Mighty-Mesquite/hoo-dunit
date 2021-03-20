@@ -19,7 +19,7 @@ const fetchProductWithStyles = (productId) => {
     apiCall(`http://localhost:8080/products/${productId}/styles`),
   ])
     .then(([product, styles]) => {
-      console.log(product.data)
+      console.log(styles.data)
       return {
         ...product.data,
         styles: styles.data.results,

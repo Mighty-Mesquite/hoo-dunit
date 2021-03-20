@@ -161,7 +161,8 @@ app.get('/api/products/:productId/related', (request, response) => {
     return response.status(400);
   }
 
-  return apiCall(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${productId}/related`)
+  // return apiCall(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${productId}/related`)
+  return apiCall(`http://localhost:8080/products/${productId}/related`)
     .then((relatedIds) => {
       const uniqRelatedIds = [...new Set(relatedIds.data)];
       // eslint-disable-next-line arrow-body-style
