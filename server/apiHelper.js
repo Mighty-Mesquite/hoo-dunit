@@ -13,10 +13,13 @@ const apiCall = (url, method = 'get', data) => axios({
 
 const fetchProductWithStyles = (productId) => {
   return Promise.all([
-    apiCall(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${productId}`),
-    apiCall(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${productId}/styles`),
+    // apiCall(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${productId}`),
+    // apiCall(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${productId}/styles`),
+    apiCall(`http://localhost:8080/products/${productId}`),
+    apiCall(`http://localhost:8080/products/${productId}/styles`),
   ])
     .then(([product, styles]) => {
+      console.log(product.data)
       return {
         ...product.data,
         styles: styles.data.results,
